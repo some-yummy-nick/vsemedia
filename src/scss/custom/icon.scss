@@ -1,0 +1,29 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+
+  &_location {
+    width: 22px;
+    height: 29px;
+  }
+
+  &_close {
+    width: 16px;
+    height: 17px;
+  }
+
+  &_search {
+    width: 21px;
+    height: 21px;
+  }
+
+  &_log-in {
+    width: 24px;
+    height: 24px;
+  }
+
+  &_basket {
+    width: 28px;
+    height: 24px;
+  }
+}

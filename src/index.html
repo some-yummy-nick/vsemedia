@@ -2,38 +2,189 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Project</title>
+  <title>Vse Media</title>
+  <link rel="preload" href="/fonts/ProximaNova/ProximaNova-400.woff2" as="font" type="font/woff2"
+        crossorigin=anonymous>
+  <link rel="stylesheet" href="/css/font.css">
   <link rel="stylesheet" href="/css/style.css">
+  <script>
+    if ('fonts' in document) {
+      var regular = new FontFace('ProximaNova', 'url(/../fonts/ProximaNova/ProximaNova-400.woff2) format("woff2"), url(/../fonts/ProximaNova/ProximaNova-400.woff) format("woff")')
+      var semibold = new FontFace('ProximaNova', 'url(/../fonts/ProximaNova/ProximaNova-600.woff2) format("woff2"), url(/../fonts/ProximaNova/ProximaNova-600.woff) format("woff")')
+      var bold = new FontFace('ProximaNova', 'url(/../fonts/ProximaNova/ProximaNova-700.woff2) format("woff2"), url(/../fonts/ProximaNova/ProximaNova-700.woff) format("woff")')
+      Promise.all([regular.load(), semibold.load(), bold.load()]).then(function(fonts) {
+        fonts.forEach(function(font) {
+          document.fonts.add(font)
+        })
+      })
+    }
+    if (!('fonts' in document) && 'head' in document) {
+      var style = document.createElement('style')
+      style.innerHTML = '@font-face { font-family: ProximaNova; src: url(/fonts/ProximaNova/ProximaNova-400.woff2) format("woff2"), url(/fonts/ProximaNova/ProximaNova-400.woff) format("woff"); }@font-face { font-family: ProximaNova; src: url(/fonts/ProximaNova/ProximaNova-600.woff2) format("woff2"), url(/fonts/ProximaNova/ProximaNova-600.woff) format("woff"); }@font-face { font-family: ProximaNova; src: url(/fonts/ProximaNova/ProximaNova-700.woff2) format("woff2"), url(/fonts/ProximaNova/ProximaNova-700.woff) format("woff"); }'
+      document.head.appendChild(style)
+    }
+  </script>
+
 </head>
-<body>
+<body class="body" id="js-body">
 <div class="svg-wrapper" style="height: 0; width: 0; position: absolute; visibility: hidden">
   <svg xmlns="http://www.w3.org/2000/svg">
     <symbol id="basket">
       <path
         d="M15.836 14.165a2.497 2.497 0 00-2.494 2.493 2.497 2.497 0 002.494 2.494 2.497 2.497 0 002.493-2.494 2.497 2.497 0 00-2.493-2.493zm0 3.49a.998.998 0 010-1.994.999.999 0 010 1.995zM19.841 4.526a.747.747 0 00-.589-.287H4.618l-.673-2.817a.748.748 0 00-.728-.574H.748a.748.748 0 100 1.496h1.878l2.432 10.174c.08.337.381.574.728.574h11.646a.748.748 0 00.726-.568l1.82-7.357a.75.75 0 00-.137-.64zm-2.995 7.07H6.376l-1.4-5.86h13.32l-1.45 5.86zM6.783 14.165a2.497 2.497 0 00-2.494 2.493 2.497 2.497 0 002.494 2.494 2.497 2.497 0 002.494-2.494 2.497 2.497 0 00-2.494-2.493zm0 3.49a.999.999 0 010-1.994.999.999 0 010 1.995z"></path>
     </symbol>
+    <symbol id="location">
+      <path
+        d="M11.38 6.657c-.763 0-1.51.225-2.146.646a3.842 3.842 0 00-1.423 1.722 3.809 3.809 0 00.838 4.18 3.89 3.89 0 004.21.831 3.858 3.858 0 001.735-1.413c.424-.63.65-1.372.65-2.13a3.825 3.825 0 00-1.132-2.711 3.883 3.883 0 00-2.731-1.125zm0 5.753c-.381 0-.755-.112-1.073-.323a1.904 1.904 0 01-.293-2.95 1.936 1.936 0 012.106-.416c.353.145.655.39.867.706a1.907 1.907 0 01-.24 2.42c-.363.36-.854.562-1.366.563z"
+      ></path>
+      <path
+        d="M18.806 3.117A10.537 10.537 0 0011.927.079a10.552 10.552 0 00-7.159 2.313A10.406 10.406 0 001.01 8.867a10.36 10.36 0 001.574 7.308l7.3 11.123a1.784 1.784 0 001.498.806 1.799 1.799 0 001.498-.806l7.3-11.123a10.362 10.362 0 00-1.373-13.058zm-.245 12.011l-7.18 10.94-7.18-10.94C2.005 11.78 2.476 7.298 5.323 4.473a8.573 8.573 0 012.78-1.844 8.624 8.624 0 019.338 1.844c2.847 2.826 3.318 7.307 1.12 10.655z"
+      ></path>
+    </symbol>
+    <symbol id="close">
+      <path
+        d="M16 1.406L14.6 0 8 6.63 1.4 0 0 1.406l6.6 6.63L0 14.668l1.4 1.407L8 9.444l6.6 6.63 1.4-1.407-6.6-6.63 6.6-6.63z"
+      ></path>
+    </symbol>
+    <symbol id="search">
+      <path
+        d="M20.937 19.49l-6.817-6.817a7.804 7.804 0 001.63-4.798c0-2.105-.822-4.08-2.307-5.568A7.817 7.817 0 007.875 0a7.828 7.828 0 00-5.568 2.307A7.812 7.812 0 000 7.875c0 2.103.822 4.082 2.307 5.568a7.813 7.813 0 005.568 2.307 7.81 7.81 0 004.796-1.628l6.817 6.815a.214.214 0 00.304 0l1.145-1.142a.215.215 0 000-.305zm-8.904-7.457a5.848 5.848 0 01-4.158 1.722 5.848 5.848 0 01-4.158-1.722 5.848 5.848 0 01-1.722-4.158c0-1.57.612-3.048 1.722-4.158a5.848 5.848 0 014.158-1.722c1.57 0 3.048.609 4.158 1.722a5.848 5.848 0 011.722 4.158c0 1.57-.612 3.048-1.722 4.158z"
+      ></path>
+    </symbol>
+    <symbol id="log-in">
+      <path d="M16.486 19h4a2 2 0 002-2V5a2 2 0 00-2-2h-4v2h4v12h-4v2z"></path>
+      <path
+        d="M10.158 17.385l-1.42-1.408 3.92-3.953H3.513a1 1 0 010-2h9.163l-3.98-3.947 1.408-1.42 6.391 6.337-6.337 6.391z"
+      ></path>
+    </symbol>
+    <symbol id="basket">
+      <path
+        d="M27.49 3.784a1.955 1.955 0 00-1.526-.73H4.677l-.19-1.361A1.973 1.973 0 002.542 0H.873a.873.873 0 100 1.746h1.67a.22.22 0 01.216.188l2.355 16.883c.134.965.97 1.693 1.945 1.693h.946A2.62 2.62 0 0010.473 24a2.621 2.621 0 002.468-3.491h4.664A2.62 2.62 0 0020.073 24a2.621 2.621 0 002.468-3.491h1.895a.873.873 0 000-1.747H7.058a.22.22 0 01-.217-.187l-.217-1.558h17.188c.92 0 1.728-.653 1.92-1.552l2.152-10.037a1.958 1.958 0 00-.394-1.645zM11.345 21.382a.874.874 0 01-1.746 0 .874.874 0 011.746 0zm9.6 0a.874.874 0 11-.873-.873c.482 0 .873.392.873.873zm5.232-16.318l-2.15 10.035a.22.22 0 01-.214.173H6.381L4.921 4.8h21.042c.086 0 .14.044.17.081.03.037.062.099.044.183z"
+      ></path>
+    </symbol>
   </svg>
 </div>
 <div class="wrapper">
   <div class="content">
-    <div class="container">
-      <header class="header">
-        <svg class="icon icon_basket" width="20" height="20">
-          <use xlink:href="#basket"></use>
-        </svg>
-      </header>
+    <div class="overlay" id="js-overlay"></div>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="header__left">
+            <div class="logo">
+              <a href="" class="logo__link">
+                <img class="logo__image" src="/images/logo.svg" alt="">
+              </a>
+            </div>
+            <div class="search js-search-location">
+              <div class="search__field">
+                <svg class="icon icon_location search__icon" width="22" height="29">
+                  <use xlink:href="#location"></use>
+                </svg>
+                <input class="search__input" type="search" id="location-search" placeholder="Введите адрес доставки">
+                <label class="search__label js-search-label" for="location-search">Адрес доставки</label>
+                <button type="button" class="search__close js-search-close">
+                  <svg class="icon icon_close search__close-icon" width="16" height="17">
+                    <use xlink:href="#close"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="header__right">
+            <div class="search js-search-just">
+              <div class="search__field">
+                <svg class="icon icon_search search__icon" width="21" height="21">
+                  <use xlink:href="#search"></use>
+                </svg>
+                <input class="search__input" type="search" id="search" placeholder="Название, кухня, ресторан...">
+                <label class="search__label js-search-label" for="search">Поиск</label>
+                <button type="button" class="search__close js-search-close">
+                  <svg class="icon icon_close search__close-icon" width="16" height="17">
+                    <use xlink:href="#close"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <button class="log-in" data-modal=".js-modal-login">
+              <svg class="icon icon_log-in log-in__icon" width="24" height="24">
+                <use xlink:href="#log-in"></use>
+              </svg>
+              <span class="log-in__text">Войти</span>
+            </button>
+            <a href="" class="header__basket">
+              <svg class="icon icon_basket header__basket-icon" width="28" height="24">
+                <use xlink:href="#basket"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav class="menu">
+      <div class="container">
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a href="" class="menu__link active">Все</a>
+          </li>
+          <li class="menu__item">
+            <a href="" class="menu__link">Суши</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="modal js-modal-login">
+        <div class="modal__wrapper">
+          <div class="modal__title">Вход в личный кабинет</div>
+          <button class="modal__close js-close-modal" type="button">
+            <svg class="icon icon_close modal__close-icon" width="16" height="17">
+              <use xlink:href="#close"></use>
+            </svg>
+          </button>
+          <div class="enter modal__middle">
+            <form class="enter__form">
+              <div class="enter__blocks">
+                <div class="enter__block">
+                  <label for="phone" class="enter__label">Введите номер телефона</label>
+                  <div class="enter__field">
+                    <input name="phone" id="phone" type="text" class="enter__input">
+                  </div>
+                </div>
+                <div class="enter__block">
+                  <label for="code" class="enter__label">Введите код из СМС-сообщения</label>
+                  <div class="enter__field">
+                    <input name="code" id="code" type="text" class="enter__input">
+                  </div>
+                </div>
+                <div class="enter__block">
+                  <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkbox__custom"></span>
+                    <span class="checkbox__block">Указывая номер телефона, я принимаю <br> условия <a href=""
+                                                                                                      class="checkbox__link">пользовательского соглашения</a></span>
+                  </label>
+                </div>
+                <button class="enter__submit" type="submit">Войти</button>
+              </div>
+            </form>
+          </div>
+          <div class="modal__bottom">
+            В первый раз?
+            <button type="button" class="modal__btn">Зарегистрироваться</button>
+          </div>
+        </div>
+      </div>
 
-      <main>
-        main
-      </main>
-    </div>
+    </main>
   </div>
-  <footer class="footer">
-    <div class="container">
-      footer
-    </div>
-  </footer>
 </div>
+<footer class="footer">
+  <div class="container">
+    footer
+  </div>
+</footer>
+
 <script src="/js/script.js"></script>
 </body>
 </html>

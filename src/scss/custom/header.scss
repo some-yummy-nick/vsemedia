@@ -1,4 +1,21 @@
 .header {
-  margin-bottom: 20px;
-  padding-top: 20px;
+  padding: 23px 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__basket {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }

@@ -1,0 +1,31 @@
+.menu {
+  padding: 20px;
+  background-color: $primary;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-left: -5px;
+  }
+
+  &__item {
+    margin-left: 5px;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: $border-radius;
+
+    &.active,
+    &:hover {
+      background-color: #fff;
+    }
+  }
+}
