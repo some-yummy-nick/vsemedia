@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "core-js": "3.6.5",
+    "imask": "6.0.5",
     "normalize.css": "8.0.1"
   },
   "browserslist": [

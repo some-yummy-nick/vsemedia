@@ -1,3 +1,5 @@
+import IMask from 'imask'
+
 export class Modal {
   constructor(name) {
     this.body = document.getElementById('js-body')
@@ -5,6 +7,7 @@ export class Modal {
     this.modal = document.querySelector(name)
     this.overlay = document.getElementById('js-overlay')
     this.close = this.modal.querySelector('.js-close-modal')
+    this.phone = this.modal.querySelector('.js-phone-mask')
   }
 
   init() {
@@ -16,6 +19,8 @@ export class Modal {
 
     this.overlay.addEventListener('click', this.closePopup.bind(this))
     this.close.addEventListener('click', this.closePopup.bind(this))
+
+    IMask(this.phone, {mask: '+{7}(000)000-00-00'})
   }
 
   closePopup() {

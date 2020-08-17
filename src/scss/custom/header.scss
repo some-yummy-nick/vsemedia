@@ -1,6 +1,12 @@
 .header {
   padding: 23px 0;
 
+  &.logged {
+    .log-in {
+      display: none;
+    }
+  }
+
   &__wrapper {
     display: flex;
     justify-content: space-between;

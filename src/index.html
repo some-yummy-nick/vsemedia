@@ -62,12 +62,16 @@
         d="M27.49 3.784a1.955 1.955 0 00-1.526-.73H4.677l-.19-1.361A1.973 1.973 0 002.542 0H.873a.873.873 0 100 1.746h1.67a.22.22 0 01.216.188l2.355 16.883c.134.965.97 1.693 1.945 1.693h.946A2.62 2.62 0 0010.473 24a2.621 2.621 0 002.468-3.491h4.664A2.62 2.62 0 0020.073 24a2.621 2.621 0 002.468-3.491h1.895a.873.873 0 000-1.747H7.058a.22.22 0 01-.217-.187l-.217-1.558h17.188c.92 0 1.728-.653 1.92-1.552l2.152-10.037a1.958 1.958 0 00-.394-1.645zM11.345 21.382a.874.874 0 01-1.746 0 .874.874 0 011.746 0zm9.6 0a.874.874 0 11-.873-.873c.482 0 .873.392.873.873zm5.232-16.318l-2.15 10.035a.22.22 0 01-.214.173H6.381L4.921 4.8h21.042c.086 0 .14.044.17.081.03.037.062.099.044.183z"
       ></path>
     </symbol>
+    <symbol id="user">
+      <path
+        d="M22.099 24.681H.901a.901.901 0 01-.901-.9c0-6.371 4.084-9.879 11.5-9.879S23 17.41 23 23.781c0 .497-.404.9-.901.9zM1.834 22.88h19.332c-.355-4.763-3.602-7.176-9.666-7.176s-9.311 2.413-9.666 7.176zM11.5 12.58c-3.295 0-5.975-2.908-5.975-6.485C5.525 2.62 8.093 0 11.5 0c3.407 0 5.975 2.62 5.975 6.095 0 3.577-2.68 6.486-5.975 6.486zm0-10.779c-2.418 0-4.174 1.806-4.174 4.294 0 2.583 1.873 4.684 4.174 4.684s4.174-2.101 4.174-4.684c0-2.448-1.794-4.294-4.174-4.294z"></path>
+    </symbol>
   </svg>
 </div>
 <div class="wrapper">
   <div class="content">
     <div class="overlay" id="js-overlay"></div>
-    <header class="header">
+    <header class="header" id="js-header">
       <div class="container">
         <div class="header__wrapper">
           <div class="header__left">
@@ -112,6 +116,13 @@
               </svg>
               <span class="log-in__text">Войти</span>
             </button>
+            <div class="user">
+              <button class="user__button" type="button">
+                <svg class="icon icon_user" width="23" height="25">
+                  <use xlink:href="#user"></use>
+                </svg>
+              </button>
+            </div>
             <a href="" class="header__basket">
               <svg class="icon icon_basket header__basket-icon" width="28" height="24">
                 <use xlink:href="#basket"></use>
@@ -143,18 +154,20 @@
             </svg>
           </button>
           <div class="enter modal__middle">
-            <form class="enter__form">
+            <form class="enter__form" id="js-login-form">
               <div class="enter__blocks">
                 <div class="enter__block">
                   <label for="phone" class="enter__label">Введите номер телефона</label>
                   <div class="enter__field">
-                    <input name="phone" id="phone" type="text" class="enter__input">
+                    <input name="phone" id="phone" type="text" class="enter__input js-phone-mask js-input" value="+7(">
+                    <div class="enter__error"></div>
                   </div>
                 </div>
                 <div class="enter__block">
                   <label for="code" class="enter__label">Введите код из СМС-сообщения</label>
                   <div class="enter__field">
-                    <input name="code" id="code" type="text" class="enter__input">
+                    <input name="code" id="code" type="text" class="enter__input js-input">
+                    <div class="enter__error"></div>
                   </div>
                 </div>
                 <div class="enter__block">
@@ -184,7 +197,6 @@
     footer
   </div>
 </footer>
-
 <script src="/js/script.js"></script>
 </body>
 </html>

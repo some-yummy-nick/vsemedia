@@ -10,18 +10,26 @@
   }
 
   &__field {
-    overflow: hidden;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+
+    &.has-error {
+      .enter {
+        &__input {
+          border-color: $error;
+        }
+      }
+    }
   }
 
   &__input {
     width: 100%;
     max-width: 100%;
     background-color: #f7f7f7;
-    border: none;
     border-radius: 10px;
     padding: 11px 15px;
     font-size: 18px;
+    border: 1px solid transparent;
   }
 
   &__submit {
@@ -31,5 +39,10 @@
     background-color: $primary;
     color: #ffffff;
     border-radius: 10px;
+  }
+
+  &__error {
+    margin-top: 5px;
+    color: $error;
   }
 }

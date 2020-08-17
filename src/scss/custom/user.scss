@@ -1,0 +1,13 @@
+.user {
+  margin-right: 60px;
+
+  &__button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
