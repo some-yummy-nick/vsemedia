@@ -13,3 +13,16 @@ const loginModal = new Modal('.js-modal-login')
 loginModal.init()
 
 form.init()
+
+const profileButton = document.getElementById('js-profile-button')
+const profileMenu = document.getElementById('js-profile-menu')
+const logout = document.getElementById('js-logout')
+
+profileButton.addEventListener('click', () => {
+  profileMenu.classList.toggle('active')
+})
+
+logout.addEventListener('click', () => {
+  sessionStorage.removeItem('login')
+  window.location.reload()
+})
