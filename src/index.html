@@ -102,13 +102,18 @@
                 <svg class="icon icon_location search__icon" width="22" height="29">
                   <use xlink:href="#location"></use>
                 </svg>
-                <input class="search__input" type="search" id="location-search" placeholder="Введите адрес доставки">
-                <label class="search__label js-search-label" for="location-search">Адрес доставки</label>
+                <input class="search__input js-search-input" type="search" id="js-location-search" placeholder="Введите адрес доставки">
+                <label class="search__label js-search-label" for="js-location-search">Адрес доставки</label>
                 <button type="button" class="search__close js-search-close">
                   <svg class="icon icon_close search__close-icon" width="16" height="17">
                     <use xlink:href="#close"></use>
                   </svg>
                 </button>
+              </div>
+              <div class="search__results search__results_location js-search-menu">
+                <button type="button" class="search__result">ул. Петровско-Разумовская 17</button>
+                <button type="button" class="search__result">ул. Сибирский проезд 10, к.2</button>
+                <button type="button" class="search__result">ул. Перервинский бульвар 27, к.1</button>
               </div>
             </div>
           </div>
@@ -118,13 +123,15 @@
                 <svg class="icon icon_search search__icon" width="21" height="21">
                   <use xlink:href="#search"></use>
                 </svg>
-                <input class="search__input" type="search" id="search" placeholder="Название, кухня, ресторан...">
-                <label class="search__label js-search-label" for="search">Поиск</label>
+                <input class="search__input js-search-input" type="search" id="js-search-input" placeholder="Название, кухня, ресторан...">
+                <label class="search__label js-search-label" for="js-search-input">Поиск</label>
                 <button type="button" class="search__close js-search-close">
                   <svg class="icon icon_close search__close-icon" width="16" height="17">
                     <use xlink:href="#close"></use>
                   </svg>
                 </button>
+              </div>
+              <div class="search__results search__results_just js-search-menu">
               </div>
             </div>
             <button class="log-in" data-modal=".js-modal-login">

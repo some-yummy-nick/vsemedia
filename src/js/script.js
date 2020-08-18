@@ -4,9 +4,12 @@ import {form} from './form'
 
 const locationSearch = new Search('.js-search-location')
 locationSearch.init()
+locationSearch.getLocations()
 
 const justSearch = new Search('.js-search-just')
 justSearch.init()
+justSearch.initSave()
+justSearch.getPlaces()
 
 const loginModal = new Modal('.js-modal-login')
 

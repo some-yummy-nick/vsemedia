@@ -1,4 +1,5 @@
 .search {
+  position: relative;
   margin-right: 20px;
 
   &.active {
@@ -77,6 +78,66 @@
       .search__close-icon {
         opacity: 0.8;
       }
+    }
+  }
+
+  &__results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: calc(100% - 25px);
+    padding: 10px 15px;
+    background-color: #ffffff;
+    box-shadow: 2px 6px 20px rgba(119, 119, 119, 0.18);
+    border-radius: $border-radius;
+
+    &.active {
+      display: block;
+    }
+
+    &_location {
+      .search {
+        &__result {
+          &::before {
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23EEE'/%3E%3Cpath d='M12 7.395c-.51 0-1.008.15-1.432.43-.423.282-.753.681-.948 1.148a2.54 2.54 0 00.558 2.787 2.594 2.594 0 002.807.554c.47-.194.873-.521 1.156-.942a2.543 2.543 0 00-.32-3.227 2.589 2.589 0 00-1.822-.75zm0 3.835a1.295 1.295 0 01-1.19-.789 1.27 1.27 0 01.279-1.393 1.29 1.29 0 011.403-.277 1.272 1.272 0 01.418 2.085c-.242.239-.57.374-.91.374z' fill='%23585858'/%3E%3Cpath d='M16.95 5.035a7.025 7.025 0 00-4.586-2.026A7.035 7.035 0 007.59 4.552a6.937 6.937 0 00-2.506 4.316 6.907 6.907 0 001.05 4.872L11 21.156a1.19 1.19 0 00.999.537 1.2 1.2 0 00.999-.537l4.866-7.416a6.908 6.908 0 00-.915-8.706zm-.164 8.007L12 20.335l-4.787-7.293a5.664 5.664 0 012.6-8.333 5.75 5.75 0 016.226 1.23 5.664 5.664 0 01.747 7.103z' fill='%23585858'/%3E%3C/svg%3E%0A");
+          }
+        }
+      }
+    }
+
+    &_just {
+      .search {
+        &__result {
+          &::before {
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23EEE'/%3E%3Cpath d='M18.958 17.994l-4.545-4.545A5.203 5.203 0 0015.5 10.25c0-1.404-.548-2.72-1.538-3.712A5.211 5.211 0 0010.25 5a5.219 5.219 0 00-3.712 1.538A5.208 5.208 0 005 10.25c0 1.402.548 2.721 1.538 3.712A5.208 5.208 0 0010.25 15.5a5.207 5.207 0 003.197-1.085l4.545 4.543a.143.143 0 00.203 0l.763-.761a.142.142 0 00.031-.157.141.141 0 00-.031-.046zm-5.936-4.972a3.9 3.9 0 01-2.772 1.148 3.9 3.9 0 01-2.772-1.148A3.899 3.899 0 016.33 10.25c0-1.047.408-2.032 1.148-2.772A3.899 3.899 0 0110.25 6.33c1.046 0 2.032.406 2.772 1.148a3.9 3.9 0 011.148 2.772 3.896 3.896 0 01-1.148 2.772z' fill='%23585858'/%3E%3C/svg%3E");
+          }
+        }
+      }
+    }
+  }
+
+  &__result + &__result {
+    margin-top: 15px;
+  }
+
+  &__result {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    color: #979797;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+    }
+
+    &:hover {
+      color: #000;
     }
   }
 }
