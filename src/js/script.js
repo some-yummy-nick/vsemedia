@@ -1,6 +1,7 @@
 import {Search} from './search'
 import {Modal} from './modal'
 import {form} from './form'
+import {slider} from './slider'
 
 const locationSearch = new Search('.js-search-location')
 locationSearch.init()
@@ -29,3 +30,5 @@ logout.addEventListener('click', () => {
   sessionStorage.removeItem('login')
   window.location.reload()
 })
+
+slider.init()

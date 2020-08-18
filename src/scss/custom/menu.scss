@@ -8,24 +8,39 @@
     list-style-type: none;
     display: flex;
     align-items: center;
-    margin-left: -5px;
-  }
-
-  &__item {
-    margin-left: 5px;
+    justify-content: space-between;
   }
 
   &__link {
-    display: inline-block;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
     padding: 5px 10px;
     font-size: 18px;
     font-weight: 700;
     text-decoration: none;
     border-radius: $border-radius;
+    color: #fff;
 
     &.active,
     &:hover {
       background-color: #fff;
+      color: $color;
     }
+
+    &:hover {
+      .menu {
+        &__down {
+          filter: brightness(0);
+        }
+      }
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    margin-right: 10px;
   }
 }

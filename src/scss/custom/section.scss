@@ -1,0 +1,164 @@
+.section {
+  overflow: hidden;
+
+  &__top {
+    margin-bottom: 30px;
+
+    &_more {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  &__small {
+    font-size: 20px;
+    line-height: 24px;
+    color: #979797;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    &_double {
+      .section {
+        &__item {
+          width: calc(50% - 7.5px);
+        }
+
+        &__image {
+          min-height: 210px;
+          max-height: 210px;
+        }
+      }
+    }
+
+    &_third {
+      .section {
+        &__item {
+          min-width: calc(33.33% - 1.5px);
+        }
+
+        &__image {
+          min-height: 230px;
+          max-height: 230px;
+        }
+      }
+    }
+
+    &_nowrap {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__item {
+    margin-bottom: 20px;
+    box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  &__image {
+    position: relative;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    overflow: hidden;
+
+    &_default {
+      padding: 55px;
+      background-color: #eee;
+    }
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__heart {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+  }
+
+  &__desc {
+    position: relative;
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  &__rating {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_low {
+      background-color: #bad803;
+    }
+
+    &_middle {
+      background-color: #9ccb3b;
+    }
+
+    &_high {
+      background-color: #5ec14d;
+    }
+  }
+
+  &__name {
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 20px;
+  }
+
+  &__information {
+    display: flex;
+    margin-left: -30px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    font-size: 14px;
+
+    &-icon {
+      margin-right: 5px;
+    }
+  }
+
+  &__arrow {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    &_prev {
+      transform: rotate(180deg);
+    }
+
+    &_inactive {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+}
